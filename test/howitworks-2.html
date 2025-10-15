@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental - How It Works</title>
+    <link rel="stylesheet" >
+   
+</head>
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom, #f0f4f8 0%, #ffffff 100%);
+  min-height: 100vh;
+  padding: 60px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.tag {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  border: none;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px 25px;
+  /* border-radius: 25px; */
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #282828;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.steps-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 100px;
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+}
+
+.icon-wrapper {
+  width: 120px;
+  height: 120px;
+  background-color: #e3f2fd;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 30px;
+  transition: transform 0.3s ease;
+}
+
+.icon-wrapper:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  background-color: #1976d2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+}
+
+.calendar-icon {
+  background-color: #1976d2;
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.calendar-icon::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 35px;
+  height: 4px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.calendar-icon::after {
+  content: "";
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 20px;
+  background-color: white;
+  border-radius: 3px;
+}
+
+.car-icon {
+  background-color: #1976d2;
+  width: 50px;
+  height: 30px;
+  border-radius: 12px 12px 6px 6px;
+  position: relative;
+}
+
+.car-icon::before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 8px;
+  width: 10px;
+  height: 10px;
+  background-color: #1976d2;
+  border-radius: 50%;
+}
+
+.car-icon::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  right: 8px;
+  width: 10px;
+  height: 10px;
+  background-color: #1976d2;
+  border-radius: 50%;
+}
+
+.check-icon::before {
+  content: "✓";
+  font-size: 28px;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 2rem;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1.3rem;
+  color: #a5a4a4;
+  line-height: 1.6;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.brands-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5em;
+  padding-left: 0px;
+  /* padding: 40px 0; */
+  /* border-top: 1px solid #e0e0e0; */
+}
+
+.brand-logo {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #333;
+  letter-spacing: 2px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+
+  
+}
+
+.brand-logo:hover {
+  opacity: 1;
+}
+
+.brand-logo.honda {
+  font-family: Arial, sans-serif;
+}
+
+.brand-logo.jaguar {
+  font-family: "Times New Roman", serif;
+}
+
+.brand-logo.nissan {
+  font-family: Arial, sans-serif;
+}
+
+.brand-logo.volvo {
+  font-family: "Times New Roman", serif;
+  letter-spacing: 8px;
+}
+
+.brand-logo.audi {
+  font-family: Arial, sans-serif;
+}
+
+.brand-logo.acura {
+  font-family: Arial, sans-serif;
+}
+</style>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="tag">HOW IT WORKS</button>
+            <h1>Rent with following 3 working steps</h1>
+        </div>
+
+        <div class="steps-container">
+            <div class="step">
+                <div class="icon-wrapper">
+                    <div class="icon check-icon"></div>
+                </div>
+                <h3>Choose location</h3>
+                <p>Choose your and find your best car</p>
+            </div>
+
+            <div class="step">
+                <div class="icon-wrapper">
+                    <div class="calendar-icon"></div>
+                </div>
+                <h3>Pick-up date</h3>
+                <p>Select your pick up date and time to book your car</p>
+            </div>
+
+            <div class="step">
+                <div class="icon-wrapper">
+                    <div class="car-icon"></div>
+                </div>
+                <h3>Book your car</h3>
+                <p>Book your car and we will deliver it directly to you</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="brands-section">
+        <div class="brand-logo honda">HONDA</div>
+        <div class="brand-logo jaguar">JAGUAR</div>
+        <div class="brand-logo nissan">NISSAN</div>
+        <div class="brand-logo volvo">VOLVO</div>
+        <div class="brand-logo audi">AUDI</div>
+        <div class="brand-logo acura">ACURA</div>
+    </div>
+</body>
+</html>
