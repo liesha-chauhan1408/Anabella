@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RentCars - Find, Book and Rent a Car Easily</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 80px;
+            background: white;
+            position: relative;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #1e88e5;
+        }
+
+        .logo-icon {
+            width: 35px;
+            height: 35px;
+            background: #1e88e5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+        }
+
+        nav {
+            display: flex;
+            gap: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #1e88e5;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .signin-btn {
+            padding: 10px 25px;
+            background: transparent;
+            border: none;
+            color: #333;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .signup-btn {
+            padding: 10px 30px;
+            background: #1e88e5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .signup-btn:hover {
+            background: #1976d2;
+        }
+
+        .hero-section {
+            position: relative;
+            min-height: calc(100vh - 80px);
+            background: linear-gradient(135deg, #f5f9ff 0%, #e3f2fd 100%);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            padding: 80px 80px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-size: 62px;
+            line-height: 1.2;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+        }
+
+        .hero-text h1 .highlight {
+            color: #1e88e5;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-text h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #1e88e5;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .app-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .app-buttons img {
+            height: 50px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .app-buttons img:hover {
+            transform: scale(1.05);
+        }
+
+        .app-btn {
+            height: 50px;
+        }
+
+        .car-image {
+            position: absolute;
+            right: -100px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 55%;
+            max-width: 900px;
+            z-index: 5;
+        }
+
+        .car-image img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.2));
+        }
+
+        .search-box {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            z-index: 20;
+        }
+
+        .search-field {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+        }
+
+        .search-field:not(:last-child) {
+            border-right: 1px solid #e0e0e0;
+            padding-right: 30px;
+        }
+
+        .search-icon {
+            width: 40px;
+            height: 40px;
+            background: #f5f9ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1e88e5;
+            font-size: 20px;
+        }
+
+        .search-input {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            flex: 1;
+        }
+
+        .search-input label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .search-input input {
+            border: none;
+            outline: none;
+            font-size: 14px;
+            color: #999;
+        }
+
+        .search-btn {
+            padding: 18px 45px;
+            background: #1e88e5;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-btn:hover {
+            background: #1976d2;
+        }
+
+        .decorative-shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .shape1 {
+            width: 400px;
+            height: 400px;
+            top: -100px;
+            right: 200px;
+        }
+
+        .shape2 {
+            width: 300px;
+            height: 300px;
+            bottom: 100px;
+            left: -50px;
+        }
+
+        @media (max-width: 1400px) {
+            .car-image {
+                width: 50%;
+                right: -50px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .header {
+                padding: 20px 40px;
+            }
+
+            .hero-content {
+                padding: 60px 40px 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 52px;
+            }
+
+            .search-box {
+                width: 95%;
+                padding: 25px 30px;
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .car-image {
+                position: relative;
+                right: 0;
+                width: 100%;
+                margin-top: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .search-box {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .search-field {
+                width: 100%;
+                border-right: none !important;
+                padding-right: 0 !important;
+            }
+
+            .search-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">⚡</div>
+            <span>RENTCARS</span>
+        </div>
+        <nav>
+            <a href="#become">Become a renter</a>
+            <a href="#deals">Rental deals</a>
+            <a href="#how">How it work</a>
+            <a href="#why">Why choose us</a>
+        </nav>
+        <div class="auth-buttons">
+            <button class="signin-btn">Sign in</button>
+            <button class="signup-btn">Sign up</button>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="decorative-shape shape1"></div>
+        <div class="decorative-shape shape2"></div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>
+                    Find, book and<br>
+                    rent a car <span class="highlight">Easily</span>
+                </h1>
+                <p>
+                    Get a car wherever and whenever you<br>
+                    need it with your IOS and Android device.
+                </p>
+                <div class="app-buttons">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store">
+            </div>
+            </div>
+        </div>
+
+        <div class="car-image">
+            <img src="https://images.unsplash.com/photo-1614200179396-2bdb77ebf81b?w=1200&q=80" alt="Blue Porsche Sports Car">
+        </div>
+
+        <div class="search-box">
+            <div class="search-field">
+                <div class="search-icon">📍</div>
+                <div class="search-input">
+                    <label>Location</label>
+                    <input type="text" placeholder="Search your location">
+                </div>
+            </div>
+            <div class="search-field">
+                <div class="search-icon">📅</div>
+                <div class="search-input">
+                    <label>Pickup date</label>
+                    <input type="text" value="Tue 15 Feb, 09:00">
+                </div>
+            </div>
+            <div class="search-field">
+                <div class="search-icon">📅</div>
+                <div class="search-input">
+                    <label>Return date</label>
+                    <input type="text" value="Thu 16 Feb, 11:00">
+                </div>
+            </div>
+            <button class="search-btn">Search</button>
+        </div>
+    </section>
+</body>
+</html>

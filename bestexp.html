@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental - Best Deals</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            gap: 60px;
+        }
+
+        .left-section {
+            flex: 1;
+            position: relative;
+        }
+
+        .triangle-bg {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(200,220,240,0.3) 100%);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            top: -100px;
+            left: -50px;
+            z-index: 0;
+        }
+
+        .car-image {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .car-image img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.2));
+        }
+
+        .right-section {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.1);
+            color: #2563eb;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #1e293b;
+            line-height: 1.2;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .feature {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .icon-box svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .feature-content h3 {
+            font-size: 22px;
+            color: #1e293b;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .feature-content p {
+            font-size: 15px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .car-image {
+                max-width: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div class="triangle-bg"></div>
+            <div class="car-image">
+                <img src="Audi car.jpg" alt="Car Image">
+            </div>
+        </div>
+
+        <div class="right-section">
+            <span class="badge">WHY CHOOSE US</span>
+            <h1>We offer the best experience with our rental deals</h1>
+
+            <div class="features">
+                <div class="feature">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21 8c-.202 0-.394.029-.576.08l-1.656-2.484c-.655-.982-1.765-1.596-2.968-1.596h-3.6c-.755 0-1.47.328-1.96.9L8.6 7H7c-1.103 0-2 .897-2 2v9c0 1.103.897 2 2 2h1.5c0 1.103.897 2 2 2s2-.897 2-2h3c0 1.103.897 2 2 2s2-.897 2-2H21c1.103 0 2-.897 2-2v-5c0-2.206-1.794-4-4-4zM8.5 10c0-.276.224-.5.5-.5h4.1l1.8-2.4c.245-.327.634-.1.98-.1h3.6c.602 0 1.158.307 1.484.82L21.872 10H8.5zm2.5 10c-.551 0-1-.449-1-1s.449-1 1-1 1 .449 1 1-.449 1-1 1zm7 0c-.551 0-1-.449-1-1s.449-1 1-1 1 .449 1 1-.449 1-1 1z"/>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Best price guaranteed</h3>
+                        <p>Find a lower price? We'll refund you 100% of the difference.</p>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Experience driver</h3>
+                        <p>Don't have driver? Don't worry, we have many experienced driver for you.</p>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>24 hour car delivery</h3>
+                        <p>Book your car anytime and we will deliver it directly to you.</p>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 11H7V9h2v2zm4 0h-2V9h2v2zm4 0h-2V9h2v2z"/>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>24/7 technical support</h3>
+                        <p>Have a question? Contact Rentcars support any time when you have problem.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

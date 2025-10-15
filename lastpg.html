@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rentcars - Download App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e8f1f8 0%, #f5f9fc 100%);
+            padding: 80px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            left: -100px;
+            top: -100px;
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(200, 220, 240, 0.4), transparent);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+            z-index: 1;
+        }
+
+        .download-badge {
+            background: #d4e7f7;
+            color: #2196F3;
+            padding: 8px 20px;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: 54px;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 .blue {
+            color: #2196F3;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 35px;
+        }
+
+        .app-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .app-buttons img {
+            height: 50px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .app-buttons img:hover {
+            transform: scale(1.05);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .phone-mockup {
+            width: 100%;
+            max-width: 350px;
+            position: relative;
+        }
+
+        .phone-frame {
+            width: 100%;
+            background: #000;
+            border-radius: 45px;
+            padding: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .phone-screen {
+            background: #fff;
+            border-radius: 35px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 30px;
+            background: #000;
+            border-radius: 0 0 20px 20px;
+            z-index: 10;
+        }
+
+        .phone-content {
+            padding: 40px 20px 20px;
+            background: linear-gradient(180deg, #f0f4f8 0%, #fff 50%);
+        }
+
+        .phone-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 0 10px;
+        }
+
+        .back-btn, .heart-btn {
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            font-size: 20px;
+        }
+
+        .car-image {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .car-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a1929;
+            color: #fff;
+            padding: 60px 5% 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .logo-icon {
+            width: 35px;
+            height: 35px;
+            background: #2196F3;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #b0bec5;
+        }
+
+        .info-icon {
+            font-size: 20px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: #b0bec5;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #2196F3;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: #1a2942;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .social-icon:hover {
+            background: #2196F3;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #1a2942;
+            padding-top: 25px;
+            text-align: left;
+            color: #b0bec5;
+            font-size: 14px;
+        }
+
+        @media (max-width: 1024px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 5%;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .app-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                margin-top: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="download-badge">DOWNLOAD</div>
+            <h1>Download Rentcars<br>App for <span class="blue">FREE</span></h1>
+            <p>For faster, easier booking and exclusive deals.</p>
+            <div class="app-buttons">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store">
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="phone-mockup">
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <div class="phone-notch"></div>
+                        <div class="phone-content">
+                            <div class="car-image">
+                                <img src="Blue Jaguar.jpg" alt="Blue Jaguar XEL">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <div class="logo-icon"></div>
+                    <span>RENTCARS</span>
+                </div>
+                <div class="footer-info">
+                    <div class="info-item">
+                        <span class="info-icon">📍</span>
+                        <span>25566 Hc 1, Glenallen,<br>Alaska, 99588, USA</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">📞</span>
+                        <span>+603 4784 273 12</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">✉️</span>
+                        <span>rentcars@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Our Product</h3>
+                <ul>
+                    <li><a href="#">Career</a></li>
+                    <li><a href="#">Car</a></li>
+                    <li><a href="#">Packages</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Priceline</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Download</a></li>
+                    <li><a href="#">Help Centre</a></li>
+                    <li><a href="#">Guides</a></li>
+                    <li><a href="#">Partner Network</a></li>
+                    <li><a href="#">Cruises</a></li>
+                    <li><a href="#">Developer</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>About Rentcars</h3>
+                <ul>
+                    <li><a href="#">Why choose us</a></li>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Investor Relations</a></li>
+                    <li><a href="#">Press Center</a></li>
+                    <li><a href="#">Advertise</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">f</a>
+                    <a href="#" class="social-icon">📷</a>
+                    <a href="#" class="social-icon">▶️</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            Copyright 2023 · Rentcars, All Rights Reserved
+        </div>
+    </footer>
+</body>
+</html>
